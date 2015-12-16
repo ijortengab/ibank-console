@@ -1,23 +1,24 @@
 #!/usr/bin/env php
 <?php
-
+/*
+ * Code dibawah ini bersumber dari Composer versi 1.0-dev.
+ * https://github.com/composer/composer/blob/master/bin/composer
+ */
 if (PHP_SAPI !== 'cli') {
     echo 'Warning: IBank-Console should be invoked via the CLI version of PHP, not the '.PHP_SAPI.' SAPI'.PHP_EOL;
 }
-
-$composerAutoload = [
-    __DIR__ . '/../vendor/autoload.php', // standalone with "composer install" run
-    __DIR__ . '/../../../autoload.php', // script is installed as a composer binary
-];
-foreach ($composerAutoload as $autoload) {
-    if (file_exists($autoload)) {
-        require($autoload);
-        break;
-    }
+function includeIfExists($file)
+{
+    return file_exists($file) ? include $file : false;
+}
+if ((!$loader = includeIfExists(__DIR__.'/../vendor/autoload.php')) && (!$loader = includeIfExists(__DIR__.'/../../../autoload.php'))) {
+    echo 'You must set up the project dependencies, run the following commands:'.PHP_EOL.
+        'curl -sS https://getcomposer.org/installer | php'.PHP_EOL.
+        'php composer.phar install'.PHP_EOL;
+    exit(1);
 }
 
 use IjorTengab\IBank\Console\Application;
 
-// run the command application
-$application = new Application();
-$application->run();
+// Style code dibawah ini bersumber dari Yii versi 2.0.6
+(new Application())->run();

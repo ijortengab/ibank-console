@@ -1,8 +1,11 @@
 # Internet Banking Console
 
-a Command Line Interface for IBank Project
+Command Line Interface for IBank Project
 
 
 
 
+# Reference
+Ascii Art Generator
+    http://patorjk.com/software/taag/#p=display&f=Slant&t=I%20Bank%20-%20Console
 

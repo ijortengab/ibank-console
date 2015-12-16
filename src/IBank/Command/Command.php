@@ -1,8 +1,5 @@
-<?php
-        
-        
-        
-namespace IjorTengab\IBank\Console\Command;
+<?php   
+namespace IjorTengab\IBank\Command;
 
 // use Composer\Composer;
 // use Composer\Console\Application;

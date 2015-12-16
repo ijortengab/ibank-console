@@ -1,8 +1,5 @@
-<?php
-        
-        
-        
-namespace IjorTengab\IBank\Console\Command;
+<?php   
+namespace IjorTengab\IBank\Command;
 
 // use Composer\Composer;
 // use Composer\Console\Application;
@@ -13,7 +10,8 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Command\Command as BaseCommand;
 
-class AboutCommand extends Command {
+class AboutCommand extends Command 
+{
     protected function configure()
     {
         $this

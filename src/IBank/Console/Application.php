@@ -9,10 +9,23 @@ use Symfony\Component\Console\Output\ConsoleOutputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Component\Console\Formatter\OutputFormatter;
-use IjorTengab\IBank\Console\Command;
+use IjorTengab\IBank\Command;
 
 class Application extends BaseApplication
 {
+       private static $logo = '
+    ____   ____              __               ______                       __   
+   /  _/  / __ )____ _____  / /__            / ____/___  ____  _________  / /__ 
+   / /   / __  / __ `/ __ \/ //_/  ______   / /   / __ \/ __ \/ ___/ __ \/ / _ \
+ _/ /   / /_/ / /_/ / / / / ,<    /_____/  / /___/ /_/ / / / (__  ) /_/ / /  __/
+/___/  /_____/\__,_/_/ /_/_/|_|            \____/\____/_/ /_/____/\____/_/\___/ 
+                                                                                                                                                            
+';
+    public function getHelp()
+    {
+        return self::$logo . parent::getHelp();
+    }
+    
      /**
      * Initializes all the composer commands
      */
@@ -20,7 +33,8 @@ class Application extends BaseApplication
     {
         $commands = parent::getDefaultCommands();
         $commands[] = new Command\AboutCommand();
-        // $commands[] = new Command\ConfigCommand();
+        $commands[] = new Command\StatusCommand();
+        $commands[] = new Command\BalanceCommand();
         // $commands[] = new Command\DependsCommand();
         // $commands[] = new Command\InitCommand();
         // $commands[] = new Command\InstallCommand();
